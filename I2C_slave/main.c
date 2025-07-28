@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    u8 name[7];  // 6 حروف + نهاية \0
+    u8 name[7];  
     u8 data;
     u8 i = 0;
 
@@ -21,7 +21,7 @@ int main(void)
         i = 0;
         if (I2C_SLAVE_u8OwnSLA_Write_Recieved_ACK() == I2C_NO_Error)
         {
-            while (i < 6)  // استقبل فقط 6 حروف
+            while (i < 6)  
             {
                 if (I2C_SLAVE_u8DataByteRecieved_ACK(&data) == I2C_NO_Error)
                 {
@@ -29,9 +29,9 @@ int main(void)
                 }
             }
 
-            name[i] = '\0';  // نهاية السلسلة
+            name[i] = '\0';  
             LCD_voidClearDisplay();
-            LCD_voidWriteString(name);  // اطبع الاسم مرة واحدة
+            LCD_voidWriteString(name); 
         }
     }
 }
